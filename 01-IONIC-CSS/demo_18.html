@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/css/ionic.min.css"/>
+	<script src='libs/js/ionic.bundle.min.js'></script>
+
+</head>
+<body ng-controller='mycontroller'>
+
+	<div class="bar bar-header bar-positive">
+		<button class="button button-icon icon ion-navicon"></button>
+		<h1 class="title">bar-light</h1>
+		<button class="button button-clear button-calm">Edit</button>
+	</div>
+
+	<div class="scroll-content has-header">
+		<div class="list card">
+
+		    <div class="item item-avatar">
+		      <img src="http://www.runoob.com/try/demo_source/nin_logo.jpeg">
+		      <h2>Pretty Hate Machine</h2>
+		      <p>Nine Inch Nails</p>
+		    </div>
+
+		    <div class="item item-image">
+		      <img src="http://www.runoob.com/try/demo_source/41D5vU4I1NL.jpg">
+		    </div>
+
+		    <a class="item item-icon-left assertive" href="#">
+		      <i class="icon ion-music-note"></i>
+		      Start listening
+		    </a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	
+	//1.定义模块
+	var App=angular.module('myApp',[]);
+
+	//2.定义控制器
+	App.controller('mycontroller',['$scope',function($scope){
+
+	}])
+
+</script>
+</html>

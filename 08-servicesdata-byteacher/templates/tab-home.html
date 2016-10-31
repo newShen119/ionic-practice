@@ -1,0 +1,16 @@
+<ion-view title="首页">
+    <ion-content>
+
+        <!--http://ionicframework.com/docs/api/directive/ionSpinner/-->
+       <ion-list>
+
+           <ion-item ng-repeat="item in items" href="#/tab/home-content/{{item.aid}}">
+               {{item.title}}
+           </ion-item>
+
+       </ion-list>
+
+        <ion-infinite-scroll ng-if="hasData()" on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

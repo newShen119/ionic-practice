@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/css/ionic.min.css"/>
+	<script src='libs/js/ionic.bundle.min.js'></script>
+
+</head>
+<body ng-controller='mycontroller'>
+
+	<div class="bar bar-header bar-positive">
+		<button class="button button-icon icon ion-navicon"></button>
+		<h1 class="title">bar-light</h1>
+		<button class="button button-clear button-calm">Edit</button>
+	</div>
+
+	<div class="scroll-content has-header">
+		<div class="list">
+			<a href="#" class="item item-divider item-icon-right">
+				<i class="icon ion-email"></i>
+				my activity
+			</a>
+			<a href="#" class="item item-icon-left positive">
+				<i class="icon ion-email "></i>
+				Check mail
+			</a>
+			<a href="#" class="item item-icon-left item-icon-right">
+				<i class="icon ion-chatbubble-working"></i>
+				call me
+				<i class="icon ion-ios-telephone-outline"></i>
+			</a>
+			<a href="#" class="item item-icon-left">
+				<i class="icon ion-mic-a"></i>
+				Record album
+				<span class="item-note">
+					Grammer
+				</span>
+			</a>
+			<a href="#" class="item item-icon-left">
+				<i class="icon ion-person-stalker"></i>
+				Friends
+				<i class="badge badge-positive">
+					0
+				</i>
+			</a>
+			<a href="#" class="item item-icon-left">
+				<i class="icon ion-music-note"></i>
+				Music
+				<i class="badge badge-assertive">
+					0
+				</i>
+			</a>
+		</div>
+	</div>
+	
+
+</body>
+<script type="text/javascript">
+	
+	//1.定义模块
+	var App=angular.module('myApp',[]);
+
+	//2.定义控制器
+	App.controller('mycontroller',['$scope',function($scope){
+
+	}])
+
+</script>
+</html>

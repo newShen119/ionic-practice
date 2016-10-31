@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/css/ionic.min.css"/>
+	<script src='libs/js/ionic.bundle.min.js'></script>
+
+</head>
+<body ng-controller='mycontroller'>
+
+	<div class="bar bar-header bar-light">
+		<h1 class="title">bar-light</h1>
+	</div>
+
+	<div class="scroll-content has-header">
+		<h1>this is content</h1>
+		<button class="button"></button>
+		<button class="button icon-left ion-home button-positive">home</button>
+		<button class="button icon-right ion-star">star</button>
+		<button class="button  icon ion-settings"></button>
+	</div>
+
+
+
+
+
+</body>
+<script type="text/javascript">
+	
+	//1.定义模块
+	var App=angular.module('myApp',[]);
+
+	//2.定义控制器
+	App.controller('mycontroller',['$scope',function($scope){
+
+	}])
+
+</script>
+</html>

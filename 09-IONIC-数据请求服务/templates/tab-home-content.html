@@ -1,0 +1,17 @@
+<!--
+    tab-home-content
+-->
+<ion-view title="首页">
+    <ion-content padding="true">
+
+        <div ng-if="hasLoading">
+            <ion-spinner icon="ios"></ion-spinner>
+        </div>
+
+        <h2 ng-if="!hasLoading" >
+            {{item.title}}
+        </h2>
+
+        <div ng-if="!hasLoading" class="content" ng-bind-html="item.content"></div>
+    </ion-content>
+</ion-view>

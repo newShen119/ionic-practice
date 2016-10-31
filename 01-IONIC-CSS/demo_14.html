@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/css/ionic.min.css"/>
+	<script src='libs/js/ionic.bundle.min.js'></script>
+
+</head>
+<body ng-controller='mycontroller'>
+
+	<div class="bar bar-header bar-positive">
+		<button class="button button-icon icon ion-navicon"></button>
+		<h1 class="title">bar-light</h1>
+		<button class="button button-clear button-calm">Edit</button>
+	</div>
+
+	<div class="scroll-content has-header">
+		<div class="list">
+			<a class="item item-avatar item-button-right" href="#">
+				<img src="http://www.runoob.com/try/demo_source/venkman.jpg"/>
+				<h2>Venkman</h2>
+				<p>Back off, man. I'm a scientist.</p>
+				<button class="button button-positive">
+					<i class="icon ion-ios-telephone"></i>
+				</button>
+			</a>
+
+			<a href="#" class="item item-avatar">
+				<img src="http://www.runoob.com/try/demo_source/stantz.jpg"/>
+				<h2>Frank style</h2>
+				<p>what are you fucking doing ?</p>
+			</a>
+
+			<a class="item item-thumbnail-left" href="#">
+			   <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
+			   <h2>Weezer</h2>
+			   <p>Blue Album</p>
+			   <p>Blue Album</p>
+			 </a>
+			 <a class="item item-thumbnail-right" href="#">
+			    <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
+			    <h2>Weezer</h2>
+			    <p>Blue Album</p>
+			    <p>Blue Album</p>
+			  </a>
+		</div>
+	</div>
+	
+
+</body>
+<script type="text/javascript">
+	
+	//1.定义模块
+	var App=angular.module('myApp',[]);
+
+	//2.定义控制器
+	App.controller('mycontroller',['$scope',function($scope){
+
+	}])
+
+</script>
+</html>

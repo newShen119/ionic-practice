@@ -1,0 +1,54 @@
+<!--
+    tab-find
+-->
+<ion-view title="发现">
+    <ion-content>
+
+       <!--1：轮播图-->
+        <ion-slide-box options="options" slider="data.slider" class="slider-container" does-continue=true auto-play=true slide-interval=4000>
+
+            <ion-slide>
+                <div class="box">
+                    <img src="imgs/001.jpg" alt="001">
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="box">
+                    <img src="imgs/002.jpg" alt="002">
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="box">
+                    <img src="imgs/004.jpg" alt="003">
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="box">
+                    <img src="imgs/004.jpg" alt="004">
+                </div>
+            </ion-slide>
+
+
+        </ion-slide-box>
+
+        <!--2.列表-->
+        <ion-list>
+            <ion-item ng-repeat=" item in items ">
+                <h2>
+                    {{ item.subject }}
+                </h2>
+                <p>
+                    {{ item.author }}
+                </p>
+            </ion-item>
+        </ion-list>
+
+        <!--加载更多-->
+        <ion-infinite-scroll  on-infinite="loadMore()" distance="1%" ng-if="hasData()">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

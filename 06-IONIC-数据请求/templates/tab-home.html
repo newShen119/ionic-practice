@@ -1,0 +1,16 @@
+
+<!--
+    tab-home
+-->
+
+<ion-view title="首页">
+    <ion-content>
+        <ion-list>
+        	<!-- href跳转方式：需要加# -->
+            <ion-item  ng-repeat="item in items" href="#/tab/home-content/{{item.aid}}" >
+                {{item.title}}
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

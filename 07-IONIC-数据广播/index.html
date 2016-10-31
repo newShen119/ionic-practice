@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.3.8/angular.min.js"></script>
+    <style>
+
+        .parent{
+            margin: 100px auto 0px auto;
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+        }
+        .self{
+
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+
+        .self a{
+            width:160px;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+            background: blue;
+            margin:20px;
+        }
+
+        .child{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .bro{
+            width: 200px;
+            height: 200px;
+            background: orange;
+            margin-top:20px
+        }
+    </style>
+
+</head>
+<body>
+  	<div ng-app="myApp">
+
+      	<div class="parent" ng-controller="ParentCtrl">              <!--父级-->
+
+          	ParentCtrl
+          	<div class="self" ng-controller="SelfCtrl">              <!--自己-->
+              	<a ng-click="click()">SelfCtrl click me</a>
+              	<div class="child" ng-controller="ChildCtrl">ChildCtrl</div>     <!--子级-->
+          	</div>
+
+          	<div class="bro" ng-controller="BroCtrl">BroCtrl兄弟节点</div>         <!--平级-->
+      </div>
+
+  	</div>
+</body>
+<script type="text/javascript">
+	
+	var app = angular.module('myApp',[]);
+
+	app.controller('SelfCtrl',['$scope','$rootScope',function($scope,$rootScope){
+
+		$scope.click = function(){
+
+			/*
+			* $broadcast  给子controller 广播数据
+			* $emit  给 父亲controller广播数据
+			* $scope.$on  接收数据
+			*
+			* */
+
+			//第1次广播：
+				$scope.$broadcast('to-child1', '给child数据'); //'to-child1':这次广播的名字、'给child数据 ':是这次广播的数据、可以是字符串、也可以是数组 和对象
+
+			//第2次广播
+				$scope.$emit('to-parent', '给parent的数据');
+
+			//第3次广播
+				$rootScope.$broadcast('root-scope', 'this is root scope');
+		}
+	}]);
+
+	app.controller('ParentCtrl',['$scope',function($scope){
+
+		//接受广播
+		$scope.$on('to-child1',function(event,data){
+
+	        console.log('ChildCtrl'+data);
+	    })
+
+	      $scope.$on('to-parent',function(event,data){
+	        console.log('ChildCtrl'+data); //:2
+	    })
+
+	      $scope.$on('root-scope',function(event,data){
+	        console.log('ChildCtrl'+data); //:3
+	    })
+	}]);
+
+	app.controller('ChildCtrl',['$scope',function($scope){
+
+		$scope.$on('to-child1',function(event,data){
+		    console.log('ChildCtrl'+data); //:1
+		})
+
+		$scope.$on('to-parent',function(event,data){
+		    console.log('ChildCtrl'+data);
+		})
+
+		$scope.$on('root-scope',function(event,data){
+		    console.log('ChildCtrl'+data);//:4
+		})
+	}]);
+
+	app.controller('BroCtrl',['$scope','$rootScope',function($scope,$rootScope){
+
+		$scope.$on('to-child1',function(event,data){
+		    console.log('ChildCtrl'+data);
+		})
+
+		$scope.$on('to-parent',function(event,data){
+		    console.log('ChildCtrl'+data);
+		})
+
+		$scope.$on('root-scope',function(event,data){
+		    console.log('ChildCtrl'+data);//:5
+		})
+	}])
+</script>
+</html>

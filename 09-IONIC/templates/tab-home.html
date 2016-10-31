@@ -1,0 +1,20 @@
+<!--
+    tab-home
+-->
+<ion-view title="新闻列表">
+        <ion-content>
+
+            <!--新闻列表-->
+            <ion-list>
+                <!-- href跳转方式：需要加# -->
+                <ion-item  ng-repeat="item in items" href="#/tab/home-content/{{item.aid}}" >
+                    {{item.title}}
+                </ion-item>
+            </ion-list>
+
+            <!--加载更多-->
+            <ion-infinite-scroll  on-infinite="loadMore()" distance="1%" ng-if="hasData()">
+            </ion-infinite-scroll>
+
+        </ion-content>
+</ion-view>

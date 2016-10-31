@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+    <title>ionic ui router 实例</title>
+    <script type="text/javascript" src="libs/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" href="libs/css/ionic.min.css"/>
+</head>
+<body>
+    <!-- 第一步： ion-nav-bar：声明一个居于屏幕顶端的导航栏、他的内容随着导航视图的改变而改变-->
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+        <!--ion-nav-back-button：点击该按钮可以回退到上一视图-->
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <!--第二部： ion-nav-view: 定义视图容器、而且用该指令为添加动画-->
+    <ion-nav-view></ion-nav-view>
+
+
+    <!--第三部：ng-template：定义内联模板-->
+    <script type="text/ng-template" id="map.html">
+
+        <ion-view title="map">
+            <ion-content>
+                <p>我是map!</p>
+                <!--3.2:使用ui-sref 跳转-->
+                <a class="button button-full button-positive" ui-sref="music">跳转到music</a>
+                <a class="button button-full button-positive" ui-sref="article">跳转到artice</a>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script type="text/ng-template" id="article.html">
+        <!--3.1：ion-view：该指令定义模板视图的容器、以便与ionic的导航框架保持兼容-->
+        <ion-view title="article">
+            <ion-content>
+                <p>我是article!</p>
+                <!--3.2:使用ui-sref 跳转-->
+                <a class="button button-full button-positive" ui-sref="music">跳转到music</a>
+                <a class="button button-full button-positive" ui-sref="map">跳转到map</a>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script type="text/ng-template" id="music.html">
+        <!--3.1：ion-view：该指令定义模板视图的容器、以便与ionic的导航框架保持兼容-->
+        <ion-view title="music">
+            <ion-content>
+                <p>我是music!</p>
+                <!--3.2:使用ui-sref 跳转-->
+                <a class="button button-full button-positive" ui-sref="map">跳转到map</a>
+                <a class="button button-full button-positive" ui-sref="article">跳转到artice</a>
+            </ion-content>
+        </ion-view>
+    </script>
+
+</body>
+<script type="text/javascript">
+
+    //第四部：定义一个模块
+    var app = angular.module("myApp", ['ionic']);
+
+    //第五步：给模块配置状态机
+    // 5.1：$stateProvider 服务用来配置状态
+    //5.2：$urlRouterProvider 服务用来重定向
+    app.config(function($stateProvider,$urlRouterProvider){
+
+//        $ionicConfigProvider.backButton.text('');
+//
+//        $ionicConfigProvider.backButton.previousTitleText(false);
+
+        $stateProvider
+
+                .state('map',{
+                    url:'/map',
+                    templateUrl:'map.html',
+                    controller:'mapController'
+                })
+
+                .state('music',{
+                    url:'/music',
+                    templateUrl:'music.html',
+                    controller:'musicController'
+                })
+
+                .state('article',{
+                    url:'/article',
+                    templateUrl:'article.html',
+                    controller:'articleController'
+                })
+
+        $urlRouterProvider.otherwise('/map');   /*没有找到路由的时候默认的跳转页面*/
+    })
+
+    app.controller('mapController',['$scope',function($scope){
+        console.log('mapController');
+    }])
+
+    app.controller('musicController',['$scope',function($scope){
+        console.log('musicController');
+    }])
+
+    app.controller('articleController',['$scope',function($scope){
+        console.log('articleController');
+    }])
+
+</script>
+</html>
